@@ -53,15 +53,10 @@ that PCF typically abstracts away.
 
 ## How to Run
 
+
 1. Start Kubernetes
-
-   **minikube start**
-
-2. Build Docker image
-
-   **docker build -t pcf-to-k8s-demo .**
-
-3. Configure Terraform
+```bash
+minikube start
 
    **cd terraform
    terraform init
