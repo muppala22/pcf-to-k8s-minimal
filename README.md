@@ -21,7 +21,7 @@ that PCF typically abstracts away.
 
 ## Architecture Overview
 
-- Application runs as a stateless container
+- com.example.pcf.Application runs as a stateless container
 - Kubernetes Deployment manages replicas and rolling updates
 - Kubernetes Service provides stable networking
 - Configuration is injected via ConfigMap
