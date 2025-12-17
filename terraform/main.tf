@@ -76,7 +76,7 @@ resource "kubernetes_deployment" "app" {
 
           readiness_probe {
             http_get {
-              path = "/health"
+              path = "/actuator/health"
               port = 8080
             }
             initial_delay_seconds = 5
