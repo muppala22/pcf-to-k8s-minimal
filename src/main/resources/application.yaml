@@ -1,12 +1,13 @@
 server:
   port: 8080
-
+app:
+  message: Hello from Kubernetes
 management:
   endpoints:
     web:
       base-path: /
       exposure:
-        include: health
+        include: health, info
   endpoint:
     health:
       probes:
