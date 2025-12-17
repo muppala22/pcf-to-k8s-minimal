@@ -55,5 +55,20 @@ that PCF typically abstracts away.
 
 
 1. Start Kubernetes
-```bash
-minikube start
+    minikube start
+2. Build Docker image 
+   docker build -t pcf-to-k8s-demo .
+3. Configure Terraform
+   cd terraform
+   terraform init
+   terraform apply
+4. Access the app
+   kubectl port-forward service/pcf-to-k8s 8080:8080
+   curl http://localhost:8080/health
+
+
+
+
+
+   **kubectl port-forward service/pcf-to-k8s 8080:8080
+   curl http://localhost:8080/health**
