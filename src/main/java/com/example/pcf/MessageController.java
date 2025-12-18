@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MessageController {
 
-    @Value("${app.message}")
+    @Value("${app.message:Hello from Kubernetes}")
     private String message;
 
     @GetMapping("/message")

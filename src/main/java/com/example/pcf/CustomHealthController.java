@@ -7,17 +7,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CustomHealthController {
 
-    @Value("${app.message:Hello from Kubernetes}")
-    private String message;
-
     @GetMapping("/health")
     public String health() {
-        return "OK - " + message;
+        return "OK" ;
     }
 
-    @GetMapping("/message")
-    public String getMessage() {
-        return message;
-    }
+
 
 }
