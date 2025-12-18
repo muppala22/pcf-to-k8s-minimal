@@ -11,19 +11,12 @@ provider "kubernetes" {
   config_path = "~/.kube/config"
 }
 
-resource "kubernetes_config_map" "app_config" {
-  metadata {
-    name = "pcf-to-k8s-config"
-  }
 
-  data = {
-    APP_MESSAGE = "Configured via ConfigMap"
-  }
-}
 
 resource "kubernetes_deployment" "app" {
   metadata {
     name = "pcf-to-k8s"
+    namespace = "default"
     labels = {
       app = "pcf-to-k8s"
     }
@@ -53,16 +46,6 @@ resource "kubernetes_deployment" "app" {
 
           port {
             container_port = 8080
-          }
-
-          env {
-            name = "APP_MESSAGE"
-            value_from {
-              config_map_key_ref {
-                name = kubernetes_config_map.app_config.metadata[0].name
-                key  = "APP_MESSAGE"
-              }
-            }
           }
 
           liveness_probe {
